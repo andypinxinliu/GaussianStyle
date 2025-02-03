@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Head Avatar Reenactment with tri-plane.">
+  <meta name="keywords" content="Head Avatar, tri-lane, NeRF">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+    </div>
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">GaussianStyle: Gaussian Head Avatar via StyleGAN</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              3DV 2025
+            </span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2402.00827"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/---------(Anonymous)"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+
+
+              <span class="link-block">
+                <a href="./Appendix_212.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Appx.</span>
+                  </a>
+              </span>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+        <img src="./static/images/3dv-teaser.jpg"/>
+      <p>
+        Figure. 1. <b>We present GaussianStyle, a novel method designed for high-fidelity volumetric avatar reconstruction from a short monocular video. Our pipeline can be utilized for portrait reenactment, high-fidelity editing, and novel view synthesis.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Existing methods like Neural Radiation Fields (NeRF) and 3D Gaussian Splatting (3DGS) have made significant strides in facial attribute control such as facial animation and components editing, yet they struggle with fine-grained representation and scalability in dynamic head modeling. To address these limitations, we propose GaussianStyle, a novel framework that integrates the volumetric strengths of 3DGS with the powerful implicit representation of StyleGAN. The GaussianStyle preserves structural information, such as expressions and poses, using Gaussian points, while projecting the implicit volumetric representation into StyleGAN to capture high-frequency details and mitigate the over-smoothing commonly observed in neural texture rendering. Experimental outcomes indicate that our method achieves state-of-the-art performance in reenactment, novel view synthesis, and animation. 
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+  
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3" style="text-align: center;">Method</h2>
+    <div class="hero-body">
+        <img src="./static/images/pipeline-3dv.jpg"/>
+      <p>Figure. 2. <b>Overview of GaussianStyle</b>. The proposed Tri-Stage training strategy includes StyleGAN-based Volumetric Rendering. In Stage 1, we construct static coarse canonical Gaussians. In Stage 2, Gaussians are queried from a temporal-aware triplane for attention-based deformation. In Stage 3, we initialize the StyleGAN through multi-view PTI initialization and project dynamic Gaussian prior into StyleGAN for volumetric rendering.</p>
+    </div>
+  </div>
+</section>
+
+<section style="background-color: #fff;">
+  <h2 class="title is-3" style="text-align: center;">Demo Video</h2>
+  <p style="text-align: center;">We have compressed the videos and downgrade quality to accommodate the 200MB supplementary material submission limition.</p>
+  <div style="width:100%; text-align: center;">
+    <div style="width:960px; text-align: center; margin:auto;">
+      <p style="width:100%; max-width:960px; word-wrap: break-word; text-align: center;">
+      </p>
+      <div style="width:100%">
+        <video poster="" autoplay controls muted loop playsinline height="100%" style="width:100%">
+          <source src="./212-demo.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code></code>@misc{liu2024gaussianstylegaussianheadavatar,
+      title={GaussianStyle: Gaussian Head Avatar via StyleGAN}, 
+      author={Pinxin Liu and Luchuan Song and Daoan Zhang and Hang Hua and Yunlong Tang and Huaijin Tu and Jiebo Luo and Chenliang Xu},
+      year={2024},
+      eprint={2402.00827},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2402.00827}, 
+}</code></pre>
+  </div>
+</section>
+
+<footer class="footer" style="padding-top: 6px; padding-bottom: 6px;">
+  <div class="container">
+    <div class="content has-text-centered">
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            Our website template comes from <a
+              href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> and is modified based on it. Thanks to the authors contribution.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+</body>
+</html>
